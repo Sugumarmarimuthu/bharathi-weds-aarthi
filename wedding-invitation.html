@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation – Bharathi & Aarthi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --deep-gold: #a0722a;
+    --rose: #e8556d;
+    --magenta: #c2185b;
+    --teal: #00796b;
+    --cream: #fdf8ee;
+    --dark: #2c1a0e;
+  }
+
+  html, body {
+    min-height: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    background: #1a0a00;
+  }
+
+  /* ── OUTER WRAPPER ── */
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── HERO / PHOTO AREA ── */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(232,85,109,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(0,121,107,0.4) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.3) 0%, transparent 70%),
+      linear-gradient(160deg, #3b1a2e 0%, #1a0a00 50%, #0d2b27 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Couple image placeholder – swap src when image is ready */
+  .couple-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(20,5,0,0.15) 0%,
+      rgba(20,5,0,0.05) 40%,
+      rgba(20,5,0,0.75) 100%
+    );
+  }
+
+  /* Decorative petals / circles */
+  .petal {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.18;
+    animation: floatPetal 8s ease-in-out infinite;
+  }
+  .p1 { width:180px; height:180px; background:#e8556d; top:-40px; left:-50px; animation-delay:0s; }
+  .p2 { width:120px; height:120px; background:#c9a84c; top:20px; right:-30px; animation-delay:1.5s; }
+  .p3 { width:90px; height:90px; background:#00796b; bottom:80px; left:20px; animation-delay:3s; }
+  .p4 { width:60px; height:60px; background:#c2185b; bottom:60px; right:40px; animation-delay:2s; }
+
+  @keyframes floatPetal {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.05); }
+  }
+
+  /* Mandala decorations (SVG inline) */
+  .mandala-tl, .mandala-tr, .mandala-bl, .mandala-br {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    opacity: 0.55;
+  }
+  .mandala-tl { top: -10px; left: -10px; }
+  .mandala-tr { top: -10px; right: -10px; transform: scaleX(-1); }
+  .mandala-bl { bottom: -10px; left: -10px; transform: scaleY(-1); }
+  .mandala-br { bottom: -10px; right: -10px; transform: scale(-1,-1); }
+
+  /* Names overlay on hero */
+  .hero-names {
+    position: absolute;
+    bottom: 28px;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 5;
+  }
+  .hero-names .blessing {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #f9e4b2;
+    letter-spacing: 0.08em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+    margin-bottom: 6px;
+  }
+  .hero-names .couple {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.4rem;
+    color: #ffd97d;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(201,168,76,0.6);
+    line-height: 1.1;
+    animation: shimmer 3s ease-in-out infinite alternate;
+  }
+  @keyframes shimmer {
+    from { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 30px rgba(201,168,76,0.4); }
+    to   { text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 60px rgba(201,168,76,0.8); }
+  }
+  .hero-names .amp {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #e8556d;
+    display: block;
+    margin: -4px 0;
+  }
+
+  /* ── CARD BODY ── */
+  .card {
+    background: var(--cream);
+    position: relative;
+    padding: 0 0 40px;
+  }
+
+  /* Top decorative banner */
+  .top-banner {
+    background: linear-gradient(135deg, #c2185b 0%, #e8556d 35%, #c9a84c 65%, #a0722a 100%);
+    text-align: center;
+    padding: 14px 20px 12px;
+    position: relative;
+  }
+  .top-banner::before, .top-banner::after {
+    content: '✦ ❋ ✦';
+    color: rgba(255,255,255,0.6);
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    display: block;
+  }
+  .top-banner .tag {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 4px 0;
+  }
+
+  /* Section: main invite text */
+  .invite-section {
+    text-align: center;
+    padding: 36px 30px 24px;
+    position: relative;
+  }
+  .invite-section::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #e8556d, #c9a84c);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+
+  .invite-text {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #5a3a1a;
+    line-height: 1.8;
+    margin-bottom: 26px;
+  }
+
+  /* Couple names cards */
+  .couple-cards {
+    display: flex;
+    gap: 0;
+    margin: 0 20px 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .person-card {
+    flex: 1;
+    padding: 22px 18px;
+    text-align: center;
+  }
+  .person-card.groom {
+    background: linear-gradient(160deg, #0d2b27 0%, #00796b 100%);
+    color: white;
+  }
+  .person-card.bride {
+    background: linear-gradient(160deg, #3b1a2e 0%, #c2185b 100%);
+    color: white;
+  }
+  .person-card .role {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+  .person-card .name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #ffd97d;
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+  .person-card .details {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-style: italic;
+  }
+
+  /* Divider between cards */
+  .card-divider {
+    width: 2px;
+    background: linear-gradient(to bottom, #e8556d, #c9a84c, #e8556d);
+    flex-shrink: 0;
+  }
+
+  /* Date & time section */
+  .date-section {
+    margin: 0 20px 28px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #fff8e7 0%, #fff0f3 100%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.15);
+  }
+  .date-section::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #c9a84c, #e8556d, #c2185b, #c9a84c);
+    z-index: -1;
+  }
+
+  .date-icon { font-size: 2rem; margin-bottom: 6px; }
+  .date-day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c2185b;
+    letter-spacing: 0.05em;
+  }
+  .date-full {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 2px 0 16px;
+  }
+  .muhurtham-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #c9a84c, #e8a020);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(201,168,76,0.4);
+  }
+  .muhurtham-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    display: block;
+    margin-top: 10px;
+    color: #a0722a;
+  }
+
+  /* Venue section */
+  .venue-section {
+    margin: 0 20px 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .venue-header {
+    background: linear-gradient(135deg, #c9a84c 0%, #a0722a 100%);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .venue-header span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  .venue-header .icon { font-size: 1.2rem; }
+  .venue-body {
+    background: white;
+    padding: 22px 24px;
+    text-align: center;
+  }
+  .venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c1a0e;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .venue-sub {
+    font-size: 0.95rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  /* Map button */
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #00796b, #004d40);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,121,107,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .map-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(0,121,107,0.5);
+  }
+  .map-btn .pin { font-size: 1rem; }
+
+  /* Closing blessing */
+  .closing {
+    text-align: center;
+    padding: 10px 30px 30px;
+  }
+  .closing .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .closing .divider-line::before,
+  .closing .divider-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a84c, transparent);
+  }
+  .closing .divider-line span { font-size: 1rem; }
+  .closing .blessing-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: #5a3a1a;
+    line-height: 1.9;
+  }
+  .closing .flowers {
+    font-size: 1.8rem;
+    letter-spacing: 0.3em;
+    margin-top: 16px;
+    animation: sway 4s ease-in-out infinite;
+  }
+  @keyframes sway {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  /* Footer band */
+  .footer-band {
+    background: linear-gradient(135deg, #2c1a0e 0%, #3b1a2e 50%, #0d2b27 100%);
+    padding: 20px;
+    text-align: center;
+  }
+  .footer-band .footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #ffd97d;
+    text-shadow: 0 0 20px rgba(201,168,76,0.5);
+  }
+  .footer-band .footer-tag {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 0.6rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(255,220,140,0.5);
+    margin-top: 4px;
+  }
+
+  /* Floating confetti */
+  .confetti-wrap {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  .confetti-piece {
+    position: absolute;
+    top: -20px;
+    border-radius: 2px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating confetti -->
+<div class="confetti-wrap" id="confetti"></div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <!-- 🖼️ Couple image: replace 'YOUR_IMAGE_URL' with actual image path when uploaded -->
+    <!-- <img class="couple-img" src="YOUR_IMAGE_URL" alt="Bharathi & Aarthi"> -->
+
+    <!-- Decorative blobs behind (shown when no image) -->
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+
+    <!-- Corner mandalas -->
+    <svg class="mandala-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="80" stroke="#c9a84c" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="65" stroke="#e8556d" stroke-width="0.5"/>
+      <circle cx="0" cy="0" r="50" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="70" y2="70" stroke="#e8556d" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="90" y2="40" stroke="#c9a84c" stroke-width="0.3"/>
+      <line x1="0" y1="0" x2="40" y2="90" stroke="#c9a84c" stroke-width="0.3"/>
+      <!-- petals -->
+      <ellipse cx="25" cy="5" rx="12" ry="5" fill="#e8556d" opacity="0.5" transform="rotate(10 25 5)"/>
+      <ellipse cx="5" cy="25" rx="5" ry="12" fill="#c9a84c" opacity="0.5" transform="rotate(10 5 25)"/>
+      <ellipse cx="18" cy="18" rx="10" ry="4" fill="#c2185b" opacity="0.4" transform="rotate(45 18 18)"/>
+    </svg>
+    <svg class="mandala-tr" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="80" stroke="#c9a84c" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="65" stroke="#e8556d" stroke-width="0.5"/>
+      <circle cx="0" cy="0" r="50" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="70" y2="70" stroke="#e8556d" stroke-width="0.4"/>
+      <ellipse cx="25" cy="5" rx="12" ry="5" fill="#e8556d" opacity="0.5"/>
+      <ellipse cx="5" cy="25" rx="5" ry="12" fill="#c9a84c" opacity="0.5"/>
+    </svg>
+    <svg class="mandala-bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="80" stroke="#c9a84c" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="65" stroke="#e8556d" stroke-width="0.5"/>
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#c9a84c" stroke-width="0.4"/>
+      <ellipse cx="25" cy="5" rx="12" ry="5" fill="#00796b" opacity="0.5"/>
+      <ellipse cx="5" cy="25" rx="5" ry="12" fill="#c9a84c" opacity="0.5"/>
+    </svg>
+    <svg class="mandala-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="80" stroke="#c9a84c" stroke-width="0.6"/>
+      <circle cx="0" cy="0" r="65" stroke="#e8556d" stroke-width="0.5"/>
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#c9a84c" stroke-width="0.4"/>
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#c9a84c" stroke-width="0.4"/>
+      <ellipse cx="25" cy="5" rx="12" ry="5" fill="#c2185b" opacity="0.5"/>
+      <ellipse cx="5" cy="25" rx="5" ry="12" fill="#c9a84c" opacity="0.5"/>
+    </svg>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-names">
+      <div class="blessing">✨ With love & blessings ✨</div>
+      <div class="couple">
+        Bharathi
+        <span class="amp">&amp;</span>
+        Aarthi
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD -->
+  <div class="card">
+
+    <!-- Top banner -->
+    <div class="top-banner">
+      <div class="tag">— Wedding Invitation —</div>
+    </div>
+
+    <!-- Invite text -->
+    <div class="invite-section">
+      <p class="invite-text">
+        With the blessings of our elders,<br>
+        we cordially invite you to the<br>
+        <strong style="font-style:normal; color:#c2185b; font-size:1.15rem;">Sacred Wedding Ceremony</strong><br>
+        of our beloved
+      </p>
+    </div>
+
+    <!-- Couple cards -->
+    <div class="couple-cards">
+      <div class="person-card groom">
+        <div class="role">🌿 Groom</div>
+        <span class="name">Bharathi</span>
+        <div class="details">
+          K. Bharathi<br>
+          B.Sc (Agriculture)<br>
+          <em style="font-size:0.75rem; opacity:0.75">Jayalakshmi Agro Agencies,<br>Thirumazhapadi</em>
+        </div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="person-card bride">
+        <div class="role">🌸 Bride</div>
+        <span class="name">Aarthi</span>
+        <div class="details">
+          N. Aarthi<br>
+          M.Sc (Physics), AIR-RJ<br>
+          <em style="font-size:0.75rem; opacity:0.75">&nbsp;</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- Date & Time -->
+    <div class="date-section">
+      <div class="date-icon">🗓️</div>
+      <div class="date-day">Friday, 3rd April 2026</div>
+      <div class="date-full">3 · 4 · 2026</div>
+      <div class="muhurtham-box">
+        ⏰ &nbsp;Muhurtham: <strong>9:00 AM – 10:30 AM</strong>
+      </div>
+      <div class="muhurtham-label">✦ Auspicious Time ✦</div>
+    </div>
+
+    <!-- Venue -->
+    <div class="venue-section">
+      <div class="venue-header">
+        <span class="icon">🏛️</span>
+        <span>Venue</span>
+      </div>
+      <div class="venue-body">
+        <div class="venue-name">Sri Karuppanna Swamy Temple<br>Marriage Hall</div>
+        <div class="venue-sub">Pullambadi</div>
+        <a class="map-btn"
+           href="https://www.google.com/search?client=ms-android-xiaomi-rvo2b&sca_esv=588643820&sxsrf=AM9HkKnIi-2c_6qz5mVyRAjgDN5-yRY0CA:1701933603898&q=Karuppasamy+Kalyana+Mandabam&ludocid=4180142609909267105&ibp=gwp;0,7&lsig=AB86z5X2NA_iNO38sHuaNxmE21Di&kgs=cae2ae11613b0a94&shndl=-1&shem=lcspc,lsp&source=sh/x/loc/act/m1/2#lpg=cid:CgIgAQ%3D%3D"
+           target="_blank" rel="noopener">
+          <span class="pin">📍</span> Get Directions
+        </a>
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">
+      <div class="divider-line"><span>🌺</span></div>
+      <p class="blessing-text">
+        We request your gracious presence<br>
+        and heartfelt blessings<br>
+        for the couple on this auspicious occasion.
+      </p>
+      <div class="flowers">🌸🌼🌺🌼🌸</div>
+    </div>
+
+  </div><!-- end .card -->
+
+  <!-- Footer -->
+  <div class="footer-band">
+    <div class="footer-names">Bharathi ♥ Aarthi</div>
+    <div class="footer-tag">Friday · 3rd April 2026 · Pullambadi</div>
+  </div>
+
+</div><!-- end .page -->
+
+<script>
+  // Confetti
+  const colours = ['#e8556d','#c9a84c','#00796b','#c2185b','#ffd97d','#a0722a','#fff'];
+  const wrap = document.getElementById('confetti');
+  for (let i = 0; i < 38; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    const size = 6 + Math.random() * 8;
+    el.style.cssText = `
+      left: ${Math.random()*100}vw;
+      width: ${size}px;
+      height: ${size * (0.4 + Math.random()*0.6)}px;
+      background: ${colours[Math.floor(Math.random()*colours.length)]};
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      animation-duration: ${5 + Math.random()*8}s;
+      animation-delay: ${Math.random()*10}s;
+    `;
+    wrap.appendChild(el);
+  }
+
+  // Stop confetti after 12s
+  setTimeout(() => wrap.remove(), 12000);
+</script>
+</body>
+</html>
